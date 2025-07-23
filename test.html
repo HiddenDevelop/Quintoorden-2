@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Arte con Ventaja – 5 Plantillas Profesionales</title>
+
+    <!-- ===  FONTS & RESET  === -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* hero-arch variables                              */
+        --w: 340px;
+        --h: 480px;
+        --arch: 50%;
+        /* theming                                          */
+        --bg: #121212; /* fondo general              */
+        --txt: #fff; /* texto primario             */
+        --accent: #ffba08; /* amarillo acento            */
+        --card: #1e1e1e; /* fondo de tarjetas          */
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--txt);
+        line-height: 1.5;
+      }
+
+      /* ============  NAV  ============ */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+        z-index: 999;
+      }
+      nav img {
+        height: 48px;
+      }
+
+      /* ============  HERO  ============ */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        padding: 0 1rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 7vw, 7rem);
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+      .hero h2 {
+        font-size: clamp(1rem, 2vw, 1.75rem);
+        font-weight: 600;
+      }
+      /* arch images (existing code reused) */
+      .picture-container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+      .arch-rect {
+        width: var(--w);
+        height: var(--h);
+        border-top-left-radius: 100% var(--arch);
+        border-top-right-radius: 100% var(--arch);
+        overflow: hidden;
+      }
+      .arch-rect img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .arch-border {
+        outline: 2px dashed rgba(255, 255, 255, 0.45);
+      }
+      /* individual positions (tweak as needed) */
+      .painting-1 {
+        top: 50%;
+        left: 50%;
+        width: calc(var(--w) * 1.35 - 50px);
+        height: calc(var(--h) * 1.35);
+      }
+      .painting-2 {
+        top: 25%;
+        left: 15%;
+        width: var(--w);
+        height: calc(var(--h) - 180px);
+        border-top-left-radius: 100% calc(var(--arch) + 20%);
+        border-top-right-radius: 100% calc(var(--arch) + 20%);
+      }
+      .painting-3 {
+        top: 65%;
+        left: 90%;
+      }
+
+      /* ============  SECTIONS  ============ */
+      section {
+        padding: 5rem 1rem;
+        max-width: 1100px;
+        margin-inline: auto;
+      }
+      #plantillas {
+        padding-top: 6rem;
+      } /* leave room for fixed nav */
+
+      .cards {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .card {
+        background: var(--card);
+        border-radius: 1.25rem;
+        padding: 2rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+      }
+      .card ul {
+        list-style: disc inside;
+        padding-left: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .card::before {
+        /* small decorative bar */
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 4px;
+        background: var(--accent);
+      }
+
+      /* ============  BUNDLE  ============ */
+      #bundle {
+        text-align: center;
+      }
+      #bundle .price {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--accent);
+        margin: 1rem 0;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.9rem 2.5rem;
+        font-weight: 700;
+        border-radius: 9999px;
+        text-decoration: none;
+        background: var(--accent);
+        color: #000;
+        transition: 0.2s transform;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      /* ============  FAQ  ============ */
+      .faq-item + .faq-item {
+        margin-top: 1.5rem;
+        border-top: 1px solid #333;
+        padding-top: 1.5rem;
+      }
+      .faq-item h4 {
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 0.3rem;
+        color: var(--accent);
+      }
+
+      /* ============  FOOTER  ============ */
+      footer {
+        background: #0d0d0d;
+        color: #aaa;
+        padding: 2rem 1rem;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      /* ============  SMOOTH SCROLL  ============ */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =====  NAVBAR  ===== -->
+    <nav>
+      <img src="./logo.png" alt="Quinto Orden – Artist Coaching" />
+    </nav>
+
+    <!-- =====  HERO  ===== -->
+    <header class="hero" id="inicio">
+      <div>
+        <h1>ARTE CON VENTAJA</h1>
+        <h2>5 Plantillas Profesionales Que Todo Artista Necesita</h2>
+      </div>
+
+      <!-- existing decorative images -->
+      <figure class="picture-container arch-rect painting-1">
+        <img src="Painting1.png" alt="" />
+      </figure>
+      <figure
+        class="picture-container arch-rect painting-1 arch-border"
+      ></figure>
+
+      <figure class="picture-container arch-rect painting-2">
+        <img src="Painting2.png" alt="" />
+      </figure>
+      <figure
+        class="picture-container arch-rect painting-2 arch-border"
+      ></figure>
+
+      <figure class="picture-container arch-rect painting-3">
+        <img src="Painting3.png" alt="" />
+      </figure>
+      <figure
+        class="picture-container arch-rect painting-3 arch-border"
+      ></figure>
+    </header>
+
+    <!-- =====  PLANTILLAS  ===== -->
+    <section id="plantillas">
+      <h2
+        style="
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 3rem;
+        "
+      >
+        ¿Qué Incluye el Paquete?
+      </h2>
+
+      <div class="cards">
+        <!-- CARD 1 -->
+        <article class="card">
+          <h3>Plantilla de Propuesta de Galería</h3>
+          <ul>
+            <li>Estructura lista: portada, statement, portafolio</li>
+            <li>Secciones editables en Canva &amp; PowerPoint</li>
+            <li>Instrucciones paso a paso integradas</li>
+          </ul>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="card">
+          <h3>Plantilla de Nota de Prensa</h3>
+          <ul>
+            <li>Formato estándar para medios internacionales</li>
+            <li>Guía de estilo AP / MLA incluida</li>
+            <li>Versiones en español e inglés</li>
+          </ul>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="card">
+          <h3>Plantilla de Catálogo Digital</h3>
+          <ul>
+            <li>Mosaico automático de obras con precios</li>
+            <li>Botón de compra integrado</li>
+            <li>Optimizada para PDF y web</li>
+          </ul>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="card">
+          <h3>Plantilla de Contrato de Venta</h3>
+          <ul>
+            <li>Cláusulas legales explicadas en lenguaje claro</li>
+            <li>Firmas electrónicas con un clic</li>
+            <li>Actualizada a 2025</li>
+          </ul>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="card">
+          <h3>Plantilla de Gestión de Inventario</h3>
+          <ul>
+            <li>Dashboard en Google Sheets / Excel</li>
+            <li>Cálculo automático de impuestos y comisiones</li>
+            <li>Alertas de stock y préstamos de obra</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====  BUNDLE CTA  ===== -->
+    <section id="bundle">
+      <h2 style="font-size: 2.5rem; font-weight: 800">
+        Consigue Las 5 Plantillas en Un Solo Paquete
+      </h2>
+      <p style="max-width: 42ch; margin: 0.5rem auto 1rem; font-size: 1.1rem">
+        Paga una sola vez, úsalas de por vida. ¡Invierte en tu carrera artística
+        por menos de lo que cuesta un set de pinceles!
+      </p>
+      <div class="price">$49 USD</div>
+      <a href="https://enlace-de-pago.com" class="btn">Comprar el Paquete</a>
+      <p style="font-size: 0.85rem; margin-top: 0.8rem; color: #aaa">
+        Pago 100 % seguro. Recibirás un correo con los enlaces de descarga
+        inmediatamente.
+      </p>
+    </section>
+
+    <!-- =====  SOCIAL PROOF  ===== -->
+    <section>
+      <h2
+        style="
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 2rem;
+        "
+      >
+        Confían en Nosotros
+      </h2>
+      <p
+        style="
+          text-align: center;
+          max-width: 50ch;
+          margin-inline: auto;
+          color: #bbb;
+        "
+      >
+        Más de <strong>250 artistas</strong> de Latinoamérica y Europa ya
+        utilizan estas plantillas para profesionalizar su obra.
+      </p>
+    </section>
+
+    <!-- =====  FAQ  ===== -->
+    <section>
+      <h2
+        style="
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 2.5rem;
+        "
+      >
+        Preguntas Frecuentes
+      </h2>
+
+      <div class="faq-item">
+        <h4>¿Puedo editar las plantillas en mi teléfono?</h4>
+        <p>
+          Sí, funcionan en la app de Canva y en Google Docs, aunque recomendamos
+          un computador para mayor comodidad.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Hay reembolsos?</h4>
+        <p>
+          Si la plantilla no cumple con lo prometido, tienes
+          <strong>7&nbsp;días</strong> para solicitar un reembolso completo.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Necesito conocimientos técnicos?</h4>
+        <p>
+          No. Cada plantilla incluye un tutorial en video de cinco minutos y
+          soporte por correo.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====  FOOTER  ===== -->
+    <footer>
+      © 2025 Quinto Orden. Todos los derechos reservados.<br />
+      <a href="#inicio" style="color: var(--accent); text-decoration: none"
+        >Volver arriba</a
+      >
+    </footer>
+
+    <!-- =====  JS (tiny) ===== -->
+    <script>
+      /* agranda levemente los marcos rayados del hero */
+      window.addEventListener("load", () => {
+        document.querySelectorAll(".arch-border").forEach((el) => {
+          const w = parseFloat(getComputedStyle(el).width),
+            h = parseFloat(getComputedStyle(el).height);
+          el.style.width = `calc(${w}px * 1.03)`;
+          el.style.height = `calc(${h}px * 1.03)`;
+        });
+      });
+    </script>
+  </body>
+</html>

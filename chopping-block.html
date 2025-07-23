@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Artist Launch Bundle – 5 Templates Pack</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A focused bundle of 5 high-impact templates for upcoming artists: press kit, rollout planner, merch lookbook, social carousel pack, and brand guide."
+    />
+    <style>
+      :root {
+        --black-100: #000;
+        --black-90: #111;
+        --black-80: #1b1b1b;
+        --black-70: #252525;
+        --black-60: #2f2f2f;
+        --white-100: #fff;
+        --white-90: #f5f5f5;
+        --white-80: #eaeaea;
+        --yellow-100: #ffe100;
+        --yellow-90: #ffd100;
+        --yellow-80: #ffbf00;
+        --font-stack: "Helvetica Neue", Arial, system-ui, sans-serif;
+        --radius-sm: 4px;
+        --radius-md: 10px;
+        --radius-round: 999px;
+        --shadow-lg: 0 12px 30px -8px rgba(0, 0, 0, 0.55);
+        --transition: 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
+        --max-width: 1160px;
+        --grad-hero: linear-gradient(135deg, var(--black-100), var(--black-70));
+        --grad-btn: linear-gradient(
+          135deg,
+          var(--yellow-100),
+          var(--yellow-80)
+        );
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font-stack);
+        background: var(--black-90);
+        color: var(--white-90);
+        line-height: 1.5;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 0.6em;
+        line-height: 1.2;
+        font-weight: 600;
+      }
+      p {
+        margin: 0 0 1em;
+      }
+      a {
+        color: var(--yellow-90);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+      .btn {
+        background: var(--grad-btn);
+        color: #000;
+        padding: 0.95rem 1.4rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: var(--radius-round);
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .btn.secondary {
+        background: var(--black-70);
+        color: var(--yellow-80);
+        border: 1px solid var(--yellow-80);
+      }
+      .btn.secondary:hover {
+        background: var(--yellow-80);
+        color: #111;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 800;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--black-70);
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.25rem;
+
+        background-color: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar img {
+        height: 50px;
+        object-fit: contain;
+      }
+
+      .hero {
+        padding: 7rem 0 4.5rem;
+        background: var(--grad-hero);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(
+          circle at 30% 30%,
+          var(--yellow-80) 0%,
+          rgba(255, 191, 0, 0) 70%
+        );
+        top: -120px;
+        left: -160px;
+        mix-blend-mode: overlay;
+        opacity: 0.18;
+        animation: float 14s linear infinite;
+      }
+      .hero::after {
+        top: auto;
+        bottom: -160px;
+        left: auto;
+        right: -200px;
+        animation-direction: reverse;
+        background: radial-gradient(
+          circle at 70% 70%,
+          var(--yellow-90) 0%,
+          rgba(255, 225, 0, 0) 70%
+        );
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(30px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .hero h1 {
+        background: linear-gradient(
+          90deg,
+          var(--yellow-100),
+          var(--yellow-80),
+          var(--yellow-90)
+        );
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .hero p.lead {
+        font-size: 1.15rem;
+        color: var(--white-80);
+      }
+      .cta-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.6rem;
+      }
+      section {
+        padding: 4.5rem 0;
+      }
+      section.alt {
+        background: var(--black-80);
+      }
+      .section-head {
+        margin-bottom: 2.3rem;
+      }
+      .section-head h2 {
+        font-size: clamp(1.85rem, 1.2vw + 1.4rem, 2.4rem);
+      }
+      .section-head p {
+        max-width: 640px;
+        color: var(--white-80);
+        font-size: 0.98rem;
+      }
+      .bundle-wrapper {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .bundle-card {
+        background: var(--black-70);
+        border: 1px solid var(--black-60);
+        border-radius: var(--radius-md);
+        padding: 1.4rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: var(--transition);
+      }
+      .bundle-card:hover {
+        border-color: var(--yellow-80);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+      .bundle-card h3 {
+        font-size: 1rem;
+        color: var(--yellow-80);
+        margin: 0.2rem 0 0.5rem;
+      }
+
+      .bundle-card ul {
+        padding-left: 1rem;
+      }
+
+      .bundle-card li {
+        font-size: 1.1rem;
+        color: var(--white-80);
+        margin: 0 0 1rem;
+        padding: 0;
+      }
+
+      .bundle-icon-cover {
+        display: flex;
+        justify-content: center;
+      }
+
+      .bundle-icon {
+        width: 135px;
+        height: 135px;
+        border-radius: 50%;
+        background: var(--yellow-80);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #111;
+        font-size: 0.8rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        margin-bottom: 0.6rem;
+      }
+
+      .bundle-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
+
+      .bundle-meta {
+        margin-top: auto;
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        color: var(--white-80);
+      }
+      .pricing-single {
+        max-width: 680px;
+        margin: 3rem auto 0;
+        text-align: center;
+        background: var(--black-70);
+        border: 2px solid var(--yellow-80);
+        border-radius: var(--radius-md);
+        padding: 2.4rem 1.8rem;
+        position: relative;
+      }
+      .pricing-single h3 {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        color: var(--yellow-80);
+      }
+      .price-big {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--yellow-90);
+        line-height: 1;
+      }
+      .price-big small {
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: var(--white-80);
+        margin-top: 0.35rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      .value-points {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        font-size: 0.75rem;
+        text-align: left;
+        max-width: 400px;
+        margin-left: 11rem;
+        margin-right: auto;
+      }
+
+      .value-points li {
+        display: inline-block;
+      }
+
+      .value-points li::before {
+        content: "✓";
+        color: var(--yellow-80);
+        font-weight: 700;
+        margin-right: 0.5rem;
+      }
+      .catchy-p h2 {
+        margin: auto;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .catchy-p p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        padding: 0 5rem;
+      }
+      .features-grid {
+        display: grid;
+        gap: 1.8rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .feature {
+        background: var(--black-70);
+        border: 1px solid var(--black-60);
+        padding: 1.35rem 1.15rem 1.4rem;
+        border-radius: var(--radius-md);
+        position: relative;
+        transition: var(--transition);
+      }
+      .feature:hover {
+        border-color: var(--yellow-80);
+        transform: translateY(-4px);
+      }
+      .feature h3 {
+        font-size: 1rem;
+        color: var(--yellow-80);
+        margin-top: 0;
+      }
+      .feature p {
+        font-size: 0.78rem;
+        color: var(--white-80);
+      }
+      .feature .icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: var(--yellow-80);
+        color: #111;
+        font-weight: 800;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+      }
+      .testimonials {
+        position: relative;
+      }
+      .slider {
+        overflow: hidden;
+        position: relative;
+      }
+      .slides {
+        display: flex;
+        transition: var(--transition);
+      }
+      .testimonial {
+        min-width: 100%;
+      }
+      .testimonial-inner {
+        background: var(--black-70);
+        border: 1px solid var(--black-60);
+        padding: 2rem 1.5rem 2.2rem;
+        border-radius: var(--radius-md);
+        position: relative;
+      }
+      .testimonial-inner::before {
+        content: "“";
+        position: absolute;
+        top: -20px;
+        left: 10px;
+        font-size: 6rem;
+        line-height: 1;
+        color: var(--yellow-80);
+        opacity: 0.15;
+      }
+      .testimonial p {
+        font-size: 0.9rem;
+        max-width: 60ch;
+        margin: 0 0 1rem;
+      }
+      .author {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--yellow-80);
+      }
+      .slider-controls {
+        display: flex;
+        gap: 0.6rem;
+        position: absolute;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .slider-controls button {
+        width: 12px;
+        height: 12px;
+        background: var(--black-70);
+        border: 1px solid var(--yellow-80);
+        border-radius: 50%;
+        padding: 0;
+        font-size: 0;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+      .slider-controls button.active,
+      .slider-controls button:hover {
+        background: var(--yellow-80);
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 780px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        background: var(--black-70);
+        border: 1px solid var(--black-60);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+      .faq-item.open {
+        border-color: var(--yellow-80);
+      }
+      .faq-question {
+        padding: 1rem 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--yellow-80);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.1rem;
+        font-size: 0.75rem;
+        color: var(--white-80);
+        transition: max-height 0.5s ease;
+      }
+      .faq-item.open .faq-answer {
+        padding: 0 1.1rem 1.1rem;
+        max-height: 300px;
+      }
+      .faq-icon {
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+      }
+      .newsletter {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .newsletter form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.2rem;
+      }
+      .newsletter input[type="email"] {
+        flex: 1 1 250px;
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-round);
+        border: 1px solid var(--black-60);
+        background: var(--black-70);
+        color: var(--white-90);
+        font-size: 0.85rem;
+      }
+      #emailMsg {
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+        margin-top: 0.5rem;
+      }
+      footer {
+        background: var(--black-100);
+        padding: 3.2rem 0 2.5rem;
+        font-size: 0.7rem;
+        color: var(--white-80);
+      }
+      .footer-grid {
+        display: grid;
+        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin-bottom: 2.5rem;
+      }
+      footer h4 {
+        color: var(--yellow-80);
+        margin: 0 0 0.9rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+      footer a {
+        color: var(--white-80);
+      }
+      footer a:hover {
+        color: var(--yellow-80);
+      }
+      copyright {
+        display: block;
+      }
+      .copyright {
+        text-align: center;
+        font-size: 0.6rem;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: var(--transition);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+        .hero::before,
+        .hero::after {
+          animation: none;
+        }
+        .slides {
+          transition: none;
+        }
+      }
+    </style>
+
+    <style>
+      :root {
+        --w: 340px;
+        --h: 480px;
+        --arch: 50%;
+      }
+
+      .art-content {
+        z-index: 5;
+        text-align: center;
+      }
+      .art-content h1 {
+        font-size: 9rem;
+      }
+
+      figure {
+        z-index: 0;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        margin: 0;
+      }
+
+      .picture-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .arch-rect {
+        width: var(--w);
+        height: var(--h);
+
+        border-top-left-radius: 100% var(--arch);
+        border-top-right-radius: 100% var(--arch);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+
+        overflow: hidden;
+      }
+      .arch-border {
+        outline: 2px dashed rgba(255, 255, 255, 0.5);
+      }
+
+      .arch-rect img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .painting-1 {
+        width: calc(var(--w) * 1.35 - 50px);
+        height: calc(var(--h) * 1.35);
+        top: 45%;
+      }
+
+      .painting-2 {
+        width: var(--w);
+        height: calc(var(--h) - 180px);
+
+        border-top-left-radius: 100% calc(var(--arch) + 20%);
+        border-top-right-radius: 100% calc(var(--arch) + 20%);
+
+        top: 23%;
+        left: 14%;
+      }
+
+      .painting-3 {
+        width: var(--w);
+        height: var(--h);
+
+        top: 60%;
+        left: 95%;
+      }
+    </style>
+
+    <style>
+      .footer-bottom {
+        border-top: 1px solid #222;
+        padding: 1.5rem 0;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #ccc;
+        padding: 2rem;
+      }
+
+      .footer-bottom p {
+        padding: 0.5rem;
+      }
+
+      .footer-bottom a {
+        color: #ccc;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        font-weight: 500;
+      }
+      .footer-bottom a:hover {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img src="./logo.png" alt="Logo" />
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div
+        style="
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 80vh;
+        "
+      >
+        <div class="container art-content" style="max-width: max-content">
+          <h1 style="margin-bottom: 1rem">ARTE CON VENTAJA</h1>
+          <p class="lead" style="font-size: 1.75rem; font-weight: 600">
+            Los 5 templates que pueden mejorar tu carrera y confianza como
+            artista.
+          </p>
+          <div class="cta-row">
+            <a href="#purchase" class="btn">Obtener el paquete</a>
+            <a href="#bundle" class="btn secondary">Ver lo que contiene</a>
+          </div>
+          <p
+            style="
+              font-size: 0.65rem;
+              letter-spacing: 0.1em;
+              margin-top: 2rem;
+              text-transform: uppercase;
+              color: var(--white-80);
+              font-weight: 600;
+            "
+          >
+            Con la confianza de más de 1,200 artistas emergentes
+          </p>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+          "
+        >
+          <figure class="picture-container arch-rect painting-1">
+            <img src="Painting3.png" alt="Painting 1" />
+          </figure>
+
+          <figure
+            class="picture-container arch-rect painting-1 arch-border"
+          ></figure>
+
+          <figure class="picture-container arch-rect painting-2">
+            <img src="Painting2.png" alt="Painting 2" />
+          </figure>
+
+          <figure
+            class="picture-container arch-rect painting-2 arch-border"
+          ></figure>
+
+          <figure class="picture-container arch-rect painting-3">
+            <img src="Painting1.png" alt="Painting 3" />
+          </figure>
+          <figure
+            class="picture-container arch-rect painting-3 arch-border"
+          ></figure>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Quienes somos?</h2>
+          <p>Nosotros somos una organización para ayudar artistas como tú.</p>
+        </div>
+      </div>
+    </section>
+
+    -->
+
+    <section id="bundle" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Lo que obtienes (5 plantillas)</h2>
+          <p>
+            Cinco plantillas de enfoque láser que trabajan juntas como un
+            sistema para lanzar o renovar tu presencia como artista.
+          </p>
+        </div>
+        <div class="bundle-wrapper"></div>
+
+        <!-- Single Pricing Block -->
+        <div id="purchase" class="pricing-single reveal">
+          <h3>Paquete de Lanzamiento para Artistas</h3>
+          <p style="max-width: 520px; margin: 0 auto 1.4rem">
+            Obtén las 5 plantillas + actualizaciones de por vida para los
+            elementos incluidos. Sin pagos recurrentes: solo una compra para
+            mejorar todo tu sistema visual y de marketing.
+          </p>
+          <p class="price-big">
+            <span
+              style="
+                text-decoration: line-through;
+                opacity: 0.75;
+                color: #ccc;
+                font-size: 0.35em;
+              "
+              >$75 </span
+            ><span style="padding-right: 3rem; margin-left: 0.75rem">$60 </span
+            ><small>Pago único (precio de introducción) </small>
+          </p>
+          <ul class="value-points">
+            <li>Las 5 plantillas editables</li>
+            <li>Actualizaciones y mejoras de por vida</li>
+            <li>Uso comercial para tu propio arte</li>
+            <li>Refiere a nuestra página principal para más info</li>
+          </ul>
+          <button
+            class="btn"
+            id="checkoutBtn"
+            data-checkout="YOUR_CHECKOUT_LINK"
+          >
+            Obtener acceso inmediato
+          </button>
+          <p
+            style="
+              font-size: 0.6rem;
+              letter-spacing: 0.08em;
+              margin-top: 1rem;
+              opacity: 0.75;
+            "
+          >
+            Pago seguro · Descarga instantánea · Garantía de 14 días
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="value">
+      <div class="container" style="max-width: fit-content">
+        <div class="catchy-p">
+          <h2
+            class="section-heading"
+            style="
+              font-size: 2.5rem;
+              max-width: 57ch;
+              margin-bottom: 5rem;
+              color: var(--yellow-90);
+            "
+          >
+            Si estás leyendo esto, es porque ya estás tomando tu carrera
+            artística en serio. Tienes talento, y una obra que merece ser vista.
+          </h2>
+          <div class="container">
+            <p>
+              La mayoría de las veces ya tenemos inspiración, sabemos qué
+              proyectos queremos crear, cómo y cuándo.
+            </p>
+
+            <p>Pero lo que hace falta es estructura…</p>
+
+            <p>
+              Saber cómo presentarte con claridad, qué decir en una propuesta,
+              cómo adaptar tu portafolio según las oportunidades.
+            </p>
+
+            <p>
+              Y estas son habilidades que no todos aprendimos, pero al final del
+              día esto es lo que lleva tu arte, desde una obra cualquiera, a una
+              obra que tenga valor monetario.
+            </p>
+
+            <p>Así te puedes enfocar en lo que amas de verdad: crear.</p>
+
+            <p>Y una vez que tienes estructura, todo se siente más posible.</p>
+
+            <p>
+              En Quinto Orden, hemos visto a muchos artistas avanzar con más
+              seguridad. No porque cambien sus obras o lo que crean, sino porque
+              aprenden a comunicarlo de una forma profesional sin dejar de ser
+              ellos mismos.
+            </p>
+
+            <p>Por eso reunimos estas herramientas en un solo paquete:</p>
+
+            <p>
+              Las plantillas que han ayudado a otros artistas a dar el siguiente
+              paso con más confianza.
+            </p>
+
+            <p>
+              👉 Si tú también quieres presentarte con claridad y dejar de
+              improvisar, haz tuyo el paquete hoy y empieza a avanzar con más
+              confianza.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Éxitos de Artistas</h2>
+          <p>
+            Impulso que artistas independientes han creado usando el sistema del
+            paquete.
+          </p>
+        </div>
+        <div class="testimonials">
+          <div class="slider" aria-roledescription="carousel">
+            <div class="slides" id="testimonialSlides">
+              <div class="testimonial">
+                <div class="testimonial-inner">
+                  <p>
+                    “Por fin logré un portafolio coherente y convincente: la
+                    guía me llevó paso a paso hasta conseguir dos becas este
+                    año.”
+                  </p>
+                  <div class="author">— Clara Müller</div>
+                </div>
+              </div>
+              <div class="testimonial">
+                <div class="testimonial-inner">
+                  <p>
+                    “La sección de propuesta de exposición me dio la confianza
+                    para presentar mi proyecto—¡y una galería de Seúl me
+                    aceptó!”
+                  </p>
+                  <div class="author">— David Singh</div>
+                </div>
+              </div>
+              <div class="testimonial">
+                <div class="testimonial-inner">
+                  <p>
+                    “La plantilla de carta de presentación es oro puro: la
+                    adapté en minutos y obtuve respuestas de tres museos que
+                    antes ni me contestaban.”
+                  </p>
+                  <div class="author">— Elena García</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-controls" id="testimonialDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQ</h2>
+          <p>Need clarity before you dive in? Answers below.</p>
+        </div>
+      </div>
+    </section>
+
+    -->
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Quintoorden. Todos los derechos reservados.</p>
+      <p>
+        <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
+      </p>
+    </div>
+
+    <script>
+      window.onload = function () {
+        const arch_borders = document.querySelectorAll(".arch-border");
+
+        arch_borders.forEach((el, key) => {
+          console.log("hello");
+          let width = window.getComputedStyle(el).getPropertyValue("width");
+
+          let height = window.getComputedStyle(el).getPropertyValue("height");
+
+          let widthValue = parseFloat(width);
+          let heightValue = parseFloat(height);
+
+          el.style.width = `calc(${widthValue}px * 1.03)`;
+          el.style.height = `calc(${heightValue}px * 1.03)`;
+        });
+      };
+    </script>
+
+    <script>
+      let mouseX = 0;
+
+      // Update mouseX when the mouse moves
+      document.addEventListener("mousemove", function (event) {
+        mouseX = event.clientX;
+      });
+
+      // Display the position every second
+      setInterval(function () {
+        console.log(`Mouse X from left: ${mouseX}px`);
+      }, 1000);
+    </script>
+
+    <script>
+      const plantillas = [
+        {
+          img: "./Plantilla1.png",
+          alt: "Portafolio artístico",
+          titulo: "Plantilla de Portafolio Artístico",
+          puntos: [
+            "Instrucciones paso a paso para crear tu dossier desde cero",
+            "Ejemplos de cartas de presentación y estructura clara del contenido",
+            "Diseño adaptable según cada oportunidad profesional",
+          ],
+        },
+        {
+          img: "./Plantilla2.png",
+          alt: "Declaración de artista",
+          titulo: "Plantilla de Declaración de Artista",
+          puntos: [
+            "Guía y ejercicios para redactar una declaración sólida",
+            "Pasos sencillos para organizar historial y logros",
+          ],
+        },
+        {
+          img: "./Plantilla3.png",
+          alt: "Propuesta de exposición",
+          titulo: "Plantilla de Propuesta de Exposición",
+          puntos: [
+            "Puntos clave que toda propuesta debe incluir",
+            "Estructura clara para presentar tu proyecto de forma convincente",
+            "Consejos prácticos sobre redacción y presentación visual",
+          ],
+        },
+        {
+          img: "./Plantilla4.png",
+          alt: "Tabla de metas",
+          titulo: "Plantilla de Tabla de Metas",
+          puntos: [
+            "Estructura concisa para definir metas, plazos y seguimiento",
+            "Convierte tus objetivos en un plan de acción realista",
+            "Facilita el monitoreo de progreso a lo largo del tiempo",
+          ],
+        },
+        {
+          img: "./Plantilla5.png",
+          alt: "Carta de intención",
+          titulo: "Plantilla de Carta de Intención",
+          puntos: [
+            "Formato profesional para contactar galerías y museos",
+            "Presenta tu historial, proceso creativo y logros artísticos",
+            "Incrementa las posibilidades de obtener una respuesta positiva",
+          ],
+        },
+      ];
+
+      function crearCard(p) {
+        const items = p.puntos.map((texto) => `<li>${texto}</li>`).join("");
+        return `
+        <div class="bundle-card reveal">
+          <div class="bundle-icon-cover" style="margin-bottom: 1rem;"> <div class="bundle-icon"> <img src="${p.img}" /> </div> </div>
+            
+            <h3 style="text-align: center;">${p.titulo}</h3>
+            <ul>${items}</ul>
+            <div class="bundle-meta">Formats: Word / PSD / PDF export</div>
+          </div>
+        `;
+
+        //<div class="bundle-meta">Formats: Figma / PSD / PDF export</div>
+      }
+
+      // Montaje: iterar y agregar al contenedor
+      const contenedor = document.querySelector(".bundle-wrapper");
+      contenedor.innerHTML = plantillas.map(crearCard).join("");
+    </script>
+
+    <script>
+      /* Scroll reveal */
+      const revealEls = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }
+
+      /* Testimonials */
+      const slidesWrapper = document.getElementById("testimonialSlides");
+      const slideEls = Array.from(slidesWrapper.children);
+      const dotsWrapper = document.getElementById("testimonialDots");
+      slideEls.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.ariaLabel = `Show testimonial ${i + 1}`;
+        if (i === 0) b.classList.add("active");
+        dotsWrapper.appendChild(b);
+      });
+      let currentSlide = 0;
+      function goSlide(i) {
+        currentSlide = i;
+        slidesWrapper.style.transform = `translateX(-${i * 100}%)`;
+        dotsWrapper
+          .querySelectorAll("button")
+          .forEach((d, idx) => d.classList.toggle("active", idx === i));
+      }
+      dotsWrapper.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          goSlide([...dotsWrapper.children].indexOf(e.target));
+        }
+      });
+      let auto = setInterval(
+        () => goSlide((currentSlide + 1) % slideEls.length),
+        6000
+      );
+      slidesWrapper.addEventListener("pointerenter", () => clearInterval(auto));
+      slidesWrapper.addEventListener(
+        "pointerleave",
+        () =>
+          (auto = setInterval(
+            () => goSlide((currentSlide + 1) % slideEls.length),
+            6000
+          ))
+      );
+
+      /* FAQ */
+      document.querySelectorAll(".faq-question").forEach((q) => {
+        q.addEventListener("click", () =>
+          q.parentElement.classList.toggle("open")
+        );
+        q.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            q.click();
+          }
+        });
+      });
+
+      /* Email capture demo */
+      const emailForm = document.getElementById("emailForm");
+      const emailInput = document.getElementById("emailInput");
+      const emailMsg = document.getElementById("emailMsg");
+      emailForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const v = emailInput.value.trim();
+        if (!v) {
+          emailMsg.textContent = "Please enter an email.";
+          emailMsg.style.color = "var(--yellow-80)";
+          return;
+        }
+        if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(v)) {
+          emailMsg.textContent = "Invalid email format.";
+          emailMsg.style.color = "var(--yellow-80)";
+          return;
+        }
+        emailMsg.textContent = "Success! Check your inbox shortly.";
+        emailMsg.style.color = "var(--yellow-80)";
+        emailInput.value = "";
+      });
+
+      /* Mobile nav */
+      const mobileToggle = document.getElementById("mobileToggle");
+      const nav = document.getElementById("primaryNav");
+      mobileToggle.addEventListener("click", () => {
+        const expanded = mobileToggle.getAttribute("aria-expanded") === "true";
+        mobileToggle.setAttribute("aria-expanded", String(!expanded));
+        nav.classList.toggle("open");
+      });
+      document.querySelectorAll("nav a").forEach((a) =>
+        a.addEventListener("click", () => {
+          if (nav.classList.contains("open")) mobileToggle.click();
+        })
+      );
+
+      /* Scroll spy (simple) */
+      const spySections = [
+        "bundle",
+        "value",
+        "testimonials",
+        "faq",
+        "join",
+      ].map((id) => document.getElementById(id));
+      const navLinks = [...document.querySelectorAll("nav a")];
+      window.addEventListener("scroll", () => {
+        const pos = window.scrollY + 140;
+        let current = null;
+        spySections.forEach((s) => {
+          if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight)
+            current = s.id;
+        });
+        navLinks.forEach((l) =>
+          l.classList.toggle("active", l.getAttribute("href") === "#" + current)
+        );
+      });
+
+      /* Dynamic year */
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* Checkout placeholder */
+      document.getElementById("checkoutBtn").addEventListener("click", () => {
+        const link = document.getElementById("checkoutBtn").dataset.checkout;
+        if (link && link !== "YOUR_CHECKOUT_LINK") {
+          window.location.href = link;
+        } else
+          alert(
+            "Integrate your checkout link by replacing YOUR_CHECKOUT_LINK in data-checkout."
+          );
+      });
+    </script>
+  </body>
+</html>

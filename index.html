@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quintoorden</title>
+    <style>
+      /*  basic reset  */
+
+      :root {
+        --w: 340px;
+        --h: 480px;
+        --arch: 50%;
+
+        --bg: #121212;
+        --card: #171717;
+        --accent: #ffb300;
+        --text: #fff;
+        --radius: 1rem;
+      }
+
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        margin: 0;
+      }
+
+      body {
+        background-color: #121212;
+        overflow-x: hidden;
+        line-height: 1.7;
+      }
+
+      /* SECTION ---------- */
+      .section {
+        max-width: 1200px;
+        margin-inline: auto;
+      }
+      h2 {
+        text-align: center;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        margin-bottom: 2.5rem;
+      }
+
+      .catchy-p h2 {
+        margin: auto;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .catchy-p p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        padding: 0 5rem;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.25rem;
+
+        background-color: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar img {
+        height: 50px;
+        object-fit: contain;
+      }
+
+      .big-headline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100vh;
+      }
+
+      .middle {
+        z-index: 5;
+      }
+      .middle h1 {
+        font-size: 7rem;
+        color: white;
+        text-align: center;
+        max-width: 21ch;
+        z-index: 5;
+      }
+
+      .middle h2 {
+        font-size: 1.75rem;
+        color: white;
+        text-align: center;
+        z-index: 5;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        top: calc(1.25rem + 50px);
+      }
+
+      .picture-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .arch-rect {
+        width: var(--w);
+        height: var(--h);
+
+        border-top-left-radius: 100% var(--arch);
+        border-top-right-radius: 100% var(--arch);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+
+        overflow: hidden;
+      }
+
+      .painting-1 {
+        width: calc(var(--w) * 1.35 - 50px);
+        height: calc(var(--h) * 1.35);
+
+        top: 45%;
+      }
+
+      .painting-2 {
+        width: var(--w);
+        height: calc(var(--h) - 180px);
+
+        border-top-left-radius: 100% calc(var(--arch) + 20%);
+        border-top-right-radius: 100% calc(var(--arch) + 20%);
+
+        top: 23%;
+        left: 14%;
+      }
+
+      .painting-3 {
+        width: var(--w);
+        height: var(--h);
+
+        top: 60%;
+        left: 95%;
+      }
+
+      .arch-border {
+        outline: 2px dashed rgba(255, 255, 255, 0.5);
+      }
+
+      .arch-rect img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* GRID ---------- */
+      .card-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* ensures last line is centered */
+        gap: 2rem;
+        padding: 5rem;
+      }
+
+      /* CARD ---------- */
+      .card {
+        width: 300px;
+        background: var(--card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px) scale(1.015);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      /* IMAGE */
+      .card img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* CONTENT */
+      .card-content {
+        padding: 1.5rem 2rem;
+      }
+      .card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+        text-align: center;
+      }
+      .card ul {
+        text-align: center;
+        padding: 0;
+        color: white;
+      }
+      .card li {
+        text-align: left;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #222;
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #ccc;
+        padding: 2rem;
+      }
+
+      .footer-bottom p {
+        padding: 0.5rem;
+      }
+
+      .footer-bottom a {
+        color: #ccc;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        font-weight: 500;
+      }
+      .footer-bottom a:hover {
+        color: #fff;
+      }
+      /* MEDIA QUERIES ---------- */
+      @media (max-width: 900px) {
+        :root {
+          --w: 260px;
+        }
+      }
+      @media (max-width: 600px) {
+        :root {
+          --w: 100%;
+        }
+        .card {
+          max-width: 450px;
+        }
+      }
+    </style>
+
+    <style>
+      /* ---------- RESET & ROOT ---------- */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #0d0d0d;
+        --card: #1b1b1b;
+        --accent: #ffb300;
+        --text: #eaeaea;
+        --radius: 1rem;
+        --transition: 0.45s ease-in-out;
+      }
+      body {
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* ---------- SLIDER FRAME ---------- */
+      .slider {
+        position: relative;
+        margin: auto;
+        width: min(90vw, 1100px);
+        padding: 2rem 0;
+        overflow: hidden;
+      }
+      .slider-wrapper {
+        display: flex;
+        transition: transform var(--transition);
+      }
+
+      /* ---------- SLIDE / CARD ---------- */
+      .slide {
+        flex: 0 0 100%;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* ≥600 px → 2 per view */
+      @media (min-width: 600px) {
+        .slide {
+          flex: 0 0 50%;
+        }
+      }
+      /* ≥900 px → 3 per view */
+      @media (min-width: 900px) {
+        .slide {
+          flex: 0 0 33.333%;
+        }
+      }
+
+      .testimonial {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 2rem clamp(1rem, 3vw, 2.5rem);
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        display: grid;
+        gap: 1.25rem;
+      }
+      .avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent);
+        margin-inline: auto;
+      }
+      .name {
+        font-weight: 600;
+        font-size: 1.15rem;
+      }
+      .role {
+        font-size: 0.9rem;
+        color: #b3b3b3;
+      }
+      .quote {
+        line-height: 1.6;
+        font-style: italic;
+      }
+
+      /* ---------- NAV ---------- */
+      .nav {
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        background: none;
+        border: none;
+        color: var(--accent);
+        font-size: 2.5rem;
+        cursor: pointer;
+        user-select: none;
+        transition: opacity 0.3s;
+        padding: 0 0.25em;
+      }
+      .nav:hover {
+        opacity: 0.75;
+      }
+      .prev {
+        left: 0.4rem;
+      }
+      .next {
+        right: 0.4rem;
+      }
+
+      /* ---------- DOTS ---------- */
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #444;
+        cursor: pointer;
+        transition: background 0.25s;
+      }
+      .dot.active {
+        background: var(--accent);
+      }
+
+      /* ---------- MOBILE TWEAKS ---------- */
+      @media (max-width: 480px) {
+        .testimonial {
+          padding: 1.5rem 1rem;
+        }
+        .nav {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="./logo.png" alt="Logo" />
+    </nav>
+
+    <header class="container">
+      <div class="big-headline">
+        <div class="middle">
+          <h1>ARTE CON VENTAJA</h1>
+          <h2>
+            Qué esperar de los 5 templates que pueden mejorar tu carrera y
+            confianza como artista.
+          </h2>
+        </div>
+      </div>
+
+      <figure class="picture-container arch-rect painting-1">
+        <img src="Painting1.png" alt="Painting 1" />
+      </figure>
+
+      <figure
+        class="picture-container arch-rect painting-1 arch-border"
+      ></figure>
+
+      <figure class="picture-container arch-rect painting-2">
+        <img src="Painting2.png" alt="Painting 2" />
+      </figure>
+
+      <figure
+        class="picture-container arch-rect painting-2 arch-border"
+      ></figure>
+
+      <figure class="picture-container arch-rect painting-3">
+        <img src="Painting3.png" alt="Painting 3" />
+      </figure>
+      <figure
+        class="picture-container arch-rect painting-3 arch-border"
+      ></figure>
+    </header>
+
+    <section class="section">
+      <p
+        style="
+          text-align: center;
+          max-width: 100ch;
+          font-style: italic;
+          padding: 5rem 2rem;
+          font-size: 1.5rem;
+        "
+      >
+        Muchos artistas ya saben crear obras increíbles y conocen su proceso
+        creativo, pero cuando llega el momento de presentarse profesionalmente,
+        no tienen estructura. Estos templates te dan esa estructura: cómo
+        escribir, qué incluir, y cómo organizar todo para que tu talento se vea.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 style="color: white">¿Qué Incluye el Paquete?</h2>
+
+      <div class="card-grid" id="cards"></div>
+    </section>
+
+    <section class="section catchy-p">
+      <h2 class="section-heading">
+        Si estás leyendo esto, es porque ya estás tomando tu carrera artística
+        en serio. Tienes talento, y una obra que merece ser vista.
+      </h2>
+      <p>
+        La mayoría de las veces ya tenemos inspiración, sabemos qué proyectos
+        queremos crear, cómo y cuándo.
+      </p>
+
+      <p>Pero lo que hace falta es estructura…</p>
+
+      <p>
+        Saber cómo presentarte con claridad, qué decir en una propuesta, cómo
+        adaptar tu portafolio según las oportunidades.
+      </p>
+
+      <p>
+        Y estas son habilidades que no todos aprendimos, pero al final del día
+        esto es lo que lleva tu arte, desde una obra cualquiera, a una obra que
+        tenga valor monetario.
+      </p>
+
+      <p>Así te puedes enfocar en lo que amas de verdad: crear.</p>
+
+      <p>Y una vez que tienes estructura, todo se siente más posible.</p>
+
+      <p>
+        En Quinto Orden, hemos visto a muchos artistas avanzar con más
+        seguridad. No porque cambien sus obras o lo que crean, sino porque
+        aprenden a comunicarlo de una forma profesional sin dejar de ser ellos
+        mismos.
+      </p>
+
+      <p>Por eso reunimos estas herramientas en un solo paquete:</p>
+
+      <p>
+        Las plantillas que han ayudado a otros artistas a dar el siguiente paso
+        con más confianza.
+      </p>
+
+      <p>
+        👉 Si tú también quieres presentarte con claridad y dejar de improvisar,
+        haz tuyo el paquete hoy y empieza a avanzar con más confianza.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="slider">
+        <!-- slides will be injected here -->
+        <div class="slider-wrapper" id="sliderWrapper"></div>
+
+        <!-- nav & dots -->
+        <button class="nav prev" id="prevBtn">&#10094;</button>
+        <button class="nav next" id="nextBtn">&#10095;</button>
+        <div class="dots" id="dots"></div>
+      </div>
+    </section>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Quintoorden. Todos los derechos reservados.</p>
+      <p>
+        <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
+      </p>
+    </div>
+  </body>
+
+  <script>
+    console.log("Screen Width: " + screen.width);
+  </script>
+
+  <script>
+    window.onload = function () {
+      const arch_borders = document.querySelectorAll(".arch-border");
+
+      arch_borders.forEach((el, key) => {
+        console.log("hello");
+        let width = window.getComputedStyle(el).getPropertyValue("width");
+
+        let height = window.getComputedStyle(el).getPropertyValue("height");
+
+        let widthValue = parseFloat(width);
+        let heightValue = parseFloat(height);
+
+        el.style.width = `calc(${widthValue}px * 1.03)`;
+        el.style.height = `calc(${heightValue}px * 1.03)`;
+      });
+    };
+  </script>
+
+  <script>
+    const plantillas = [
+      {
+        img: "../Images/Plantilla1.png",
+        alt: "Portafolio artístico",
+        titulo: "Plantilla de Portafolio Artístico",
+        puntos: [
+          "Instrucciones paso a paso para crear tu dossier desde cero",
+          "Ejemplos de cartas de presentación y estructura clara del contenido",
+          "Diseño adaptable según cada oportunidad profesional",
+        ],
+      },
+      {
+        img: "../Images/Plantilla2.png",
+        alt: "Declaración de artista",
+        titulo: "Plantilla de Declaración de Artista",
+        puntos: [
+          "Guía y ejercicios para redactar una declaración sólida",
+          "Pasos sencillos para organizar historial y logros",
+        ],
+      },
+      {
+        img: "../Images/Plantilla3.png",
+        alt: "Propuesta de exposición",
+        titulo: "Plantilla de Propuesta de Exposición",
+        puntos: [
+          "Puntos clave que toda propuesta debe incluir",
+          "Estructura clara para presentar tu proyecto de forma convincente",
+          "Consejos prácticos sobre redacción y presentación visual",
+        ],
+      },
+      {
+        img: "../Images/Plantilla4.png",
+        alt: "Tabla de metas",
+        titulo: "Plantilla de Tabla de Metas",
+        puntos: [
+          "Estructura concisa para definir metas, plazos y seguimiento",
+          "Convierte tus objetivos en un plan de acción realista",
+          "Facilita el monitoreo de progreso a lo largo del tiempo",
+        ],
+      },
+      {
+        img: "../Images/Plantilla5.png",
+        alt: "Carta de intención",
+        titulo: "Plantilla de Carta de Intención",
+        puntos: [
+          "Formato profesional para contactar galerías y museos",
+          "Presenta tu historial, proceso creativo y logros artísticos",
+          "Incrementa las posibilidades de obtener una respuesta positiva",
+        ],
+      },
+    ];
+
+    function crearCard(p) {
+      const items = p.puntos.map((texto) => `<li>${texto}</li>`).join("");
+      return `
+        <article class="card">
+          <img src="${p.img}" alt="${p.alt}">
+          <div class="card-content">
+            <h3>${p.titulo}</h3>
+            <ul>${items}</ul>
+          </div>
+        </article>
+      `;
+    }
+
+    // Montaje: iterar y agregar al contenedor
+    const contenedor = document.getElementById("cards");
+    contenedor.innerHTML = plantillas.map(crearCard).join("");
+  </script>
+
+  <script>
+    /* ---------- DATA (“dictionary”) ---------- */
+    const testimonials = [
+      {
+        avatar: "https://i.pravatar.cc/180?img=1",
+        name: "Alice Rodríguez",
+        role: "Ilustradora",
+        quote:
+          "“Por fin logré un portafolio coherente y convincente: la guía me llevó paso a paso hasta conseguir dos becas este año.”",
+      },
+      {
+        avatar: "https://i.pravatar.cc/180?img=21",
+        name: "Ben Kim",
+        role: "Artista Conceptual",
+        quote:
+          "“La sección de propuesta de exposición me dio la confianza para presentar mi proyecto—¡y una galería de Seúl me aceptó!”",
+      },
+      {
+        avatar: "https://i.pravatar.cc/180?img=12",
+        name: "Clara Müller",
+        role: "Diseñadora Gráfica",
+        quote:
+          "“La plantilla de carta de presentación es oro puro: la adapté en minutos y obtuve respuestas de tres museos que antes ni me contestaban.”",
+      },
+      {
+        avatar: "https://i.pravatar.cc/180?img=36",
+        name: "David Singh",
+        role: "Animador",
+        quote:
+          "“Los ejercicios de declaración de artista me ayudaron a conectar mi trabajo con mi historia personal; ahora mis pitches suenan auténticos.”",
+      },
+      {
+        avatar: "https://i.pravatar.cc/180?img=49",
+        name: "Elena García",
+        role: "Artista de Cómic",
+        quote:
+          "“La tabla de metas convirtió mis ideas sueltas en un plan semanal: llevo un 40 % de avance en mi nueva novela gráfica.”",
+      },
+      {
+        avatar: "https://i.pravatar.cc/180?img=7",
+        name: "Felix Johnson",
+        role: "Artista de Storyboard",
+        quote:
+          "“Nunca había organizado mi historial profesional tan claro; los productores ven todo de un vistazo y las contrataciones llegan más rápido.”",
+      },
+    ];
+
+    /* ---------- BUILD SLIDES FROM DATA ---------- */
+    const wrapper = document.getElementById("sliderWrapper");
+
+    testimonials.forEach((t) => {
+      const slide = document.createElement("div");
+      slide.className = "slide";
+      slide.innerHTML = `
+      <article class="testimonial">
+        <img src="${t.avatar}" alt="Avatar ${t.name}" class="avatar">
+        <h3 class="name">${t.name}</h3>
+        <p class="role">${t.role}</p>
+        <p class="quote">${t.quote}</p>
+      </article>`;
+      wrapper.appendChild(slide);
+    });
+
+    /* ---------- SLIDER LOGIC ---------- */
+    const slides = Array.from(wrapper.children);
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const dotsCt = document.getElementById("dots");
+
+    let currentGroup = 0;
+    const auto = true;
+    const interval = 7000;
+    let timer;
+
+    const getPerView = () =>
+      window.innerWidth >= 900 ? 3 : window.innerWidth >= 600 ? 2 : 1;
+
+    const buildDots = () => {
+      dotsCt.innerHTML = "";
+      const groups = Math.ceil(slides.length / getPerView());
+      for (let i = 0; i < groups; i++) {
+        const dot = document.createElement("span");
+        dot.className = "dot" + (i === 0 ? " active" : "");
+        dot.dataset.index = i;
+        dot.addEventListener("click", () => goTo(i));
+        dotsCt.appendChild(dot);
+      }
+    };
+
+    const updateDots = () =>
+      [...dotsCt.children].forEach((d, i) =>
+        d.classList.toggle("active", i === currentGroup)
+      );
+
+    const goTo = (idx) => {
+      const groups = Math.ceil(slides.length / getPerView());
+      currentGroup = (idx + groups) % groups;
+      wrapper.style.transform = `translateX(-${currentGroup * 100}%)`;
+      updateDots();
+    };
+
+    /* arrows */
+    prevBtn.addEventListener("click", () => goTo(currentGroup - 1));
+    nextBtn.addEventListener("click", () => goTo(currentGroup + 1));
+
+    /* auto */
+    const startAuto = () => {
+      if (!auto) return;
+      timer = setInterval(() => goTo(currentGroup + 1), interval);
+    };
+    const stopAuto = () => clearInterval(timer);
+    wrapper.addEventListener("pointerdown", stopAuto);
+    wrapper.addEventListener("pointerup", startAuto);
+
+    /* resize */
+    window.addEventListener("resize", () => {
+      buildDots();
+      goTo(currentGroup);
+    });
+
+    /* init */
+    buildDots();
+    goTo(0);
+    startAuto();
+  </script>
+</html>
